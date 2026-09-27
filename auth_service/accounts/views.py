@@ -48,7 +48,7 @@ def profile(request, user_id):
 @api_view(["POST"])
 @permission_classes([AllowAny])
 def update_stats(request):
-    """Internal endpoint: game_service calls this after a match ends."""
+    """Internal endpoint: game_service calls this once after a match ends."""
     if request.headers.get("X-Internal-Key") != settings.INTERNAL_API_KEY:
         return Response({"detail": "Forbidden"}, status=status.HTTP_403_FORBIDDEN)
 
